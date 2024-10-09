@@ -1,0 +1,30 @@
+---
+import { Image } from "astro:assets";
+import { logos } from "../../constants";
+---
+
+<section
+  class="px-3 sm:px-5 md:px-7 lg:px-10 xl:px-16 2xl:px-20 w-full relative z-40"
+>
+  <div class="container mx-auto">
+    <ul
+      class="w-full flex items-center justify-center lg:justify-between flex-wrap gap-5 h-[162px]"
+    >
+      {
+        logos.map((item, index) => (
+          <li>
+            <figure class="">
+              <Image
+                src={item}
+                alt={"logo"}
+                width={200}
+                height={200}
+                class={`${index === 2 ? "scale-150 object-cover relative top-10" : ""}`}
+              />
+            </figure>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

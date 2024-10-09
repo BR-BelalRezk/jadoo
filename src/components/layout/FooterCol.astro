@@ -1,0 +1,22 @@
+---
+import { footerCol_1, footerCol_2, footerCol_3 } from "../../constants";
+
+type Props = {
+  header: string;
+  array: typeof footerCol_1 | typeof footerCol_2 | typeof footerCol_3;
+};
+const { header, array } = Astro.props;
+---
+
+<div class="flex items-start justify-center flex-col gap-3">
+  <h5
+    class="text-[#080809] font-poppins text-[21px] font-bold leading-[26.15px] text-left"
+  >
+    {header}
+  </h5>
+  <ul
+    class="text-[#6F727B] flex items-start justify-center flex-col gap-1.5 font-poppins text-[18px] font-normal leading-[22.41px] text-left"
+  >
+    {array.map((item) => <li>{item}</li>)}
+  </ul>
+</div>

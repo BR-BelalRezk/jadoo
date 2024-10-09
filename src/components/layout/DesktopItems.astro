@@ -1,0 +1,37 @@
+---
+import { navbarActions, navbarItems } from "../../constants";
+type Props = {
+  className: string;
+};
+const { className } = Astro.props;
+---
+
+<div class={className}>
+  <ul
+    class="flex items-center justify-center lg:gap-5 xl:gap-16 font-openSans text-[17px] leading-[21.62px] text-[#212832]"
+  >
+    {
+      navbarItems.map((item) => (
+        <li class="font-normal capitalize hover:scale-105 transition duration-500">
+          <a href="#">{item}</a>
+        </li>
+      ))
+    }
+    {
+      navbarActions.map((item) => (
+        <li
+          class={`hover:scale-105 transition duration-500 font-medium ${item === "Login" ? "" : "border border-[#212832] rounded-[5px] px-5 py-1.5"}`}
+        >
+          <a href="#">{item}</a>
+        </li>
+      ))
+    }
+    <li class="hover:scale-105 transition duration-500 font-medium">
+      <select class="bg-transparent">
+        <option value="en">EN</option>
+        <option value="ar">AR</option>
+        <option value="fr">FR</option>
+      </select>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,28 @@
+---
+import { Image } from "astro:assets";
+import logo from "../../assets/logo.svg";
+import DesktopItems from "./DesktopItems.astro";
+import MobileItems from "./MobileItems.astro";
+import curve from "../../assets/curve.png";
+---
+
+<header
+  class="px-3 sm:px-5 md:px-7 lg:px-10 xl:px-16 2xl:px-20 pt-12 w-full relative"
+>
+  <figure
+    class="absolute top-0 left-[150px] lg:top-[-100px] xl:top-[-125px] 2xl:top-[-149px] z-40 md:left-[400px] lg:left-[500px] xl:left-[650px] 2xl:left-[850px]"
+  >
+    <Image src={curve} alt={"curve"} />
+  </figure>
+  <nav
+    class="container mx-auto flex items-center justify-between relative z-50"
+  >
+    <figure class="hover:scale-110 transition duration-500">
+      <a href="#">
+        <Image src={logo} alt={"jadoo"} />
+      </a>
+    </figure>
+    <DesktopItems className="hidden lg:block" />
+    <MobileItems className="lg:hidden" />
+  </nav>
+</header>

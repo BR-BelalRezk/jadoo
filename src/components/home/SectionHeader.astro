@@ -1,0 +1,33 @@
+---
+import { Image } from "astro:assets";
+import pluses from "../../assets/pluses.png";
+type Props = {
+  text: string;
+  header: string;
+  className?: string;
+};
+const { text, header, className } = Astro.props;
+---
+
+<div
+  class={`flex  justify-center gap-5 flex-col w-full ${className ? className : "text-center items-center"}`}
+>
+  <span
+    class="uppercase text-[#5E6282] font-poppins font-semibold text-[18px] leading-[27px]"
+    >{text}</span
+  >
+  <div class="relative w-full">
+    <h2
+      class="text-[#14183E] relative z-50 w-full font-volkhov font-bold text-3xl sm:text-[50px] sm:leading-[64.5px]"
+    >
+      {header}
+    </h2>
+    {
+      text === "CATEGORY" && (
+        <figure class="absolute right-0 z-40 -top-3/4 hidden md:block">
+          <Image src={pluses} alt={"pluses"} width={153} height={166} />
+        </figure>
+      )
+    }
+  </div>
+</div>

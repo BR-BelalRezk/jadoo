@@ -1,0 +1,43 @@
+---
+import { Image } from "astro:assets";
+import play from "../../assets/play.svg";
+---
+
+<div class="max-w-[630px] w-full">
+  <span
+    class="text-[#DF6951] font-bold text-sm xl:text-[20px] leading-[30px] font-poppins"
+    >Best Destinations around the world</span
+  >
+  <h1
+    class="font-bold tracking-[4%] xl:leading-[89px] text-6xl xl:text-[84px] font-volkhov mt-5"
+  >
+    Travel, enjoy and live a new and full life
+  </h1>
+  <p
+    class="text-[#5E6282] font-medium text-base leading-[20px] font-poppins max-w-[477px] mt-5 xl:mt-10"
+  >
+    Built Wicket longer admire do barton vanity itself do in it. Preferred to
+    sportsmen it engrossed listening. Park gate sell they west hard for the.
+  </p>
+  <div class="flex gap-3 xl:gap-10 items-center justify-start mt-5 xl:mt-10">
+    <button
+      class="font-openSans w-[170px] hover:bg-opacity-75 duration-500 transition h-[60px] flex items-center justify-center rounded-[10px] text-lg leading-[22.9] text-center text-white bg-[#F1A501] drop-shadow-[0px_20px_35px_0px_rgba(241,165,1,0.15)]"
+      >Find out more</button
+    >
+    <button class="flex items-center justify-center group">
+      <figure
+        class="relative size-20 group-hover:scale-110 transition duration-500"
+      >
+        <Image
+          src={play}
+          alt={"play"}
+          class={"object-cover block absolute top-2"}
+        />
+      </figure>
+      <span
+        class="text-[#686D77] transition duration-500 group-hover:scale-90 block font-poppins font-normal text-[17px] leading-[25.5px]"
+        >Play Demo</span
+      >
+    </button>
+  </div>
+</div>

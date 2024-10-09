@@ -1,0 +1,88 @@
+---
+import { navbarActions, navbarItems } from "../../constants";
+
+type Props = {
+  className: string;
+};
+const { className } = Astro.props;
+---
+
+<div class={className}>
+  <button
+    id="hamburger"
+    class="bg-white size-12 rounded-full flex flex-col items-center justify-center gap-1 relative z-[1050]"
+  >
+    {
+      Array.from({ length: 2 }, (_, index) => index).map((index) => (
+        <span
+          class={`h-0.5 w-6 rounded-full bg-black transition duration-500`}
+          id={index === 0 ? "span_1" : "span_2"}
+        />
+      ))
+    }
+  </button>
+  <ul
+    id="mobileNav"
+    class="fixed -translate-x-full flex font-openSans leading-[21.62px] text-[#212832] text-[17px] items-start pl-5 justify-center gap-10 flex-col left-0 top-0 z-[1000] h-dvh w-[300px] bg-white/80 backdrop-blur-sm transition duration-500"
+  >
+    <div
+      class="flex flex-col items-start justify-center gap-5 capitalize font-normal"
+    >
+      {
+        navbarItems.map((item) => (
+          <li class="hover:scale-105 transition duration-500">
+            <a href="#">{item}</a>
+          </li>
+        ))
+      }
+    </div>
+    <div class="flex items-center justify-center gap-5 font-medium">
+      {
+        navbarActions.map((item) => (
+          <li
+            class={`hover:scale-105 transition duration-500 ${item === "Login" ? "" : "border border-[#212832] rounded-[5px] px-5 py-1.5"}`}
+          >
+            <a href="#">{item}</a>
+          </li>
+        ))
+      }
+      <li class="hover:scale-105 transition duration-500">
+        <select class="bg-transparent">
+          <option value="en">EN</option>
+          <option value="ar">AR</option>
+          <option value="fr">FR</option>
+        </select>
+      </li>
+    </div>
+  </ul>
+</div>
+<script>
+  let toggle = false;
+
+  const span_1 = document.getElementById("span_1") as HTMLSpanElement | null;
+  const span_2 = document.getElementById("span_2") as HTMLSpanElement | null;
+  const mobileNav = document.getElementById(
+    "mobileNav"
+  ) as HTMLUListElement | null;
+  const hamburger = document.getElementById(
+    "hamburger"
+  ) as HTMLButtonElement | null;
+
+  if (span_1 && span_2 && hamburger && mobileNav) {
+    hamburger.onclick = function () {
+      toggle = !toggle;
+
+      if (toggle) {
+        span_1.classList.add("rotate-45", "translate-y-1");
+        span_2.classList.add("-rotate-45", "-translate-y-1");
+        mobileNav.classList.add("-translate-x-0");
+        mobileNav.classList.remove("-translate-x-full");
+      } else {
+        span_1.classList.remove("rotate-45", "translate-y-1");
+        span_2.classList.remove("-rotate-45", "-translate-y-1");
+        mobileNav.classList.remove("-translate-x-0");
+        mobileNav.classList.add("-translate-x-full");
+      }
+    };
+  }
+</script>

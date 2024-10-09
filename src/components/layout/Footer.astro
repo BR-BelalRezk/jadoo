@@ -1,0 +1,28 @@
+---
+import FooterCol from "./FooterCol.astro";
+import { footerCol_1, footerCol_2, footerCol_3 } from "../../constants";
+import FooterIcons from "./FooterIcons.astro";
+---
+
+<footer
+  class="px-3 sm:px-5 md:px-7 lg:px-10 xl:px-16 2xl:px-20 mt-40 mb-10 w-full"
+>
+  <div class="container mx-auto">
+    <article class="flex items-start justify-between flex-wrap gap-10">
+      <div class="flex items-start justify-start flex-col">
+        <h4 class="text-[#181E4B] font-poppins font-medium text-[44px]">
+          Jadoo.
+        </h4>
+        <p
+          class="text-[#5E6282] font-poppins font-normal text-[13px] max-w-[207px]"
+        >
+          Book your trip in minute, get full Control for much longer.
+        </p>
+      </div>
+      <FooterCol header="Company" array={footerCol_1} />
+      <FooterCol header="Contact" array={footerCol_2} />
+      <FooterCol header="More" array={footerCol_3} />
+      <FooterIcons />
+    </article>
+  </div>
+</footer>

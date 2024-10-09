@@ -1,0 +1,61 @@
+---
+import SectionHeader from "./SectionHeader.astro";
+import { services } from "../../constants";
+import { Image } from "astro:assets";
+---
+
+<section
+  class="px-3 sm:px-5 md:px-7 lg:px-10 xl:px-16 2xl:px-20 mt-20 xl:mt-40 w-full relative z-40"
+>
+  <div class="container mx-auto">
+    <div class="w-full flex items-center justify-center flex-col gap-16">
+      <SectionHeader text="CATEGORY" header="We Offer Best Services" />
+      <div
+        class="flex items-center justify-center gap-20 flex-wrap xl:gap-0 xl:justify-between w-full"
+      >
+        {
+          services.map((item) => (
+            <div
+              class={`flex flex-col items-center relative group  justify-center ${item.active ? "gap-0 active w-[267px] h-[314px] bg-white rounded-[36px]" : "gap-10 bg-transparent"}`}
+            >
+              {item.active && (
+                <div class="size-[100px] absolute group-hover:rotate-90 transition duration-500 -z-50 -left-[40px] -bottom-9 bg-[#DF6951] rounded-tl-[30px] rounded-br-[10px]" />
+              )}
+              <figure
+                class={`group-hover:scale-110 transition duration-500 ${item.active ? "relative -top-4" : ""}`}
+              >
+                <Image src={item.image} alt={item.title} />
+              </figure>
+              <div
+                class={`flex items-center justify-center flex-col gap-3 ${item.active ? "relative -top-5 " : ""}`}
+              >
+                <h3 class="text-[#1E1D4C] font-openSans font-semibold text-[20px] leading-[27.24px] text-center">
+                  {item.title}
+                </h3>
+                <p class="font-poppins max-w-[180px] font-normal text-base leading-[26px] text-center text-[#5E6282]">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .active {
+    box-shadow: 0px 1.85px 3.15px 0px #00000001;
+
+    box-shadow: 0px 8.15px 6.52px 0px #00000002;
+
+    box-shadow: 0px 20px 13px 0px #00000003;
+
+    box-shadow: 0px 38.52px 25.48px 0px #00000003;
+
+    box-shadow: 0px 64.81px 46.85px 0px #00000004;
+
+    box-shadow: 0px 100px 80px 0px #00000005;
+  }
+</style>

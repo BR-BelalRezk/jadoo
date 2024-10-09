@@ -1,0 +1,33 @@
+---
+import { Image } from "astro:assets";
+import { bookings } from "../../constants";
+import SectionHeader from "./SectionHeader.astro";
+---
+
+<div>
+  <SectionHeader
+    text="Easy and Fast"
+    header="Book your next trip in 3 easy steps"
+    className="lg:text-left max-w-[500px] text-center items-center capitalize lg:items-start"
+  />
+  <div
+    class="flex flex-col items-center lg:items-start justify-center gap-10 mt-10"
+  >
+    {
+      bookings.map((item) => (
+        <div class="text-base leading-[19.92px] font-poppins flex items-center justify-center gap-3">
+          <figure>
+            <Image src={item.image} alt={item.title} width={47} height={48} />
+          </figure>
+          <div>
+            <h3 class="font-bold">{item.title}</h3>
+            <p class="font-normal mt-1.5 max-w-[325px] leading-[19.92px]">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna,
+              tortor tempus.
+            </p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
