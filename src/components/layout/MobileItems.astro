@@ -23,14 +23,14 @@ const { className } = Astro.props;
   </button>
   <ul
     id="mobileNav"
-    class="fixed -translate-x-full flex font-openSans leading-[21.62px] text-[#212832] text-[17px] items-start pl-5 justify-center gap-10 flex-col left-0 top-0 z-[1000] h-dvh w-[300px] bg-white/80 backdrop-blur-sm transition duration-500"
+    class="fixed -translate-x-full flex font-openSans leading-[21.62px] text-[#212832] text-[17px] items-start px-5 justify-center gap-10 flex-col left-0 top-0 z-[1000] h-dvh w-[300px] bg-white/80 backdrop-blur-sm transition duration-500"
   >
     <div
-      class="flex flex-col items-start justify-center gap-5 capitalize font-normal"
+      class="flex flex-col items-start w-full justify-center gap-5 text-xl capitalize font-semibold pr-20"
     >
       {
         navbarItems.map((item) => (
-          <li class="hover:scale-105 transition duration-500">
+          <li class="hover:scale-105 transition duration-500 border-b-2 border-black pb-3 w-full">
             <a href="#">{item}</a>
           </li>
         ))
