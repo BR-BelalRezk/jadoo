@@ -18,7 +18,7 @@ import facebook from "../assets/facebook.png";
 import instagram from "../assets/instagram.png";
 import twitter from "../assets/twitter.png";
 
-import googlePLay from "../assets/googlePLay.png";
+import googlePLay from "../assets/googlePlay.png";
 import appleStore from "../assets/appleStore.png";
 
 export const navbarItems = [
